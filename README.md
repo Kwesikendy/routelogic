@@ -12,12 +12,12 @@ Smart trotro transit platform for Ghana - Passenger and Driver interfaces.
 
 ```bash
 # Navigate to project directory
-cd routelogic-frontend
+cd routelogic
 
-# Install dependencies
+# Install frontend dependencies
 npm install
 
-# Create environment file
+# Create frontend environment file
 cp .env.example .env
 ```
 
@@ -39,6 +39,52 @@ npm run dev
 ```
 
 The app will open at `http://localhost:3000`
+
+---
+
+## 🧩 Backend (MVP API)
+
+The backend lives in [backend/](backend) and provides all endpoints used by the frontend, plus Socket.io updates.
+
+### Backend Setup
+
+```bash
+# Open backend folder
+cd backend
+
+# Install backend dependencies
+npm install
+
+# Create backend environment file
+cp .env.example .env
+```
+
+Update `backend/.env` with your Postgres connection string:
+
+```env
+DATABASE_URL=postgres://postgres:postgres@localhost:5432/routelogic
+```
+
+### Run Backend
+
+```bash
+npm run dev
+```
+
+Backend runs on `http://localhost:5000` and matches the frontend env values in `.env`.
+
+### Seed Demo Data
+
+Run the backend seed script to populate routes and demo users:
+
+```bash
+npm run seed
+```
+
+Demo accounts:
+- Passenger: passenger@demo.com / password123
+- Driver: driver@demo.com / password123
+- Admin: admin@demo.com / password123
 
 ---
 

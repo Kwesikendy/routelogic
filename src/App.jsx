@@ -5,6 +5,7 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import PassengerDashboard from './pages/PassengerDashboard'
 import LiveTracking from './pages/LiveTracking'
+import RideTracking from './pages/RideTracking'
 import BookingConfirmation from './pages/BookingConfirmation'
 import DriverDashboard from './pages/DriverDashboard'
 import ActiveTrip from './pages/ActiveTrip'
@@ -35,6 +36,7 @@ function App() {
                 {/* Passenger Routes */}
                 <Route path="/passenger/dashboard" element={<PassengerDashboard />} />
                 <Route path="/passenger/track/:trotroId" element={<LiveTracking />} />
+                <Route path="/passenger/ride" element={<RideTracking />} />
                 <Route path="/passenger/booking-confirmation" element={<BookingConfirmation />} />
 
                 {/* Driver Routes */}

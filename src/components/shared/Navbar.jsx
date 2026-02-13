@@ -12,8 +12,9 @@ export default function Navbar({ user }) {
         navigate('/login')
     }
 
-    // Don't show navbar on landing, login, or register pages
-    if (['/login', '/register', '/'].includes(location.pathname)) {
+    // Don't show navbar on landing, login, register, passenger dashboard, or driver dashboard pages
+    // (passenger and driver dashboards have their own integrated sidebars)
+    if (['/login', '/register', '/', '/passenger/dashboard', '/driver/dashboard', '/driver/active-trip', '/passenger/booking-confirmation', '/passenger/ride'].includes(location.pathname) || location.pathname.startsWith('/passenger/track')) {
         return null
     }
 

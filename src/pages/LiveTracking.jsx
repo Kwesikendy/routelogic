@@ -118,7 +118,7 @@ export default function LiveTracking() {
 
     return (
         <div className="min-h-screen bg-background">
-            <Navbar user={user} />
+
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 <div className="mb-6">
@@ -144,8 +144,8 @@ export default function LiveTracking() {
                                     scrollWheelZoom={true}
                                 >
                                     <TileLayer
-                                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                                        url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+                                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
                                     />
 
                                     {/* Route Polyline */}
