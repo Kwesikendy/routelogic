@@ -213,11 +213,11 @@ export default function PassengerDashboard() {
     }, [pickupLocation, destinationLocation])
 
     return (
-        <div className="flex h-screen bg-background overflow-hidden">
+        <div className="flex flex-col-reverse md:flex-row h-screen bg-background overflow-hidden">
             {/* Sidebar - Search Panel */}
-            <div className="w-full md:w-96 bg-secondary border-r border-border overflow-y-auto">
+            <div className="w-full md:w-96 bg-secondary border-t md:border-t-0 md:border-r border-border overflow-y-auto h-[55%] md:h-full z-20 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.3)] md:shadow-none">
                 {/* Header */}
-                <div className="p-6 border-b border-border">
+                <div className="p-5 md:p-6 border-b border-border">
                     <div className="flex items-center gap-3 mb-4">
                         <div className="w-8 h-8 bg-gradient-to-br from-cyan-400 to-teal-400 rounded-lg flex items-center justify-center">
                             <svg className="w-5 h-5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -226,16 +226,16 @@ export default function PassengerDashboard() {
                         </div>
                         <span className="text-xl font-bold text-white">RouteLogic</span>
                     </div>
-                    <h1 className="text-2xl font-bold text-white mb-1">Welcome, {user?.name}!</h1>
-                    <p className="text-secondary text-sm">Find your trotro in real-time</p>
+                    <h1 className="text-xl md:text-2xl font-bold text-white mb-1">Welcome, {user?.name}!</h1>
+                    <p className="text-secondary text-xs md:text-sm">Find your trotro in real-time</p>
 
                     {/* Active Ride Banner */}
                     <ActiveRideBanner />
                 </div>
 
                 {/* Search Form */}
-                <div className="p-6">
-                    <h2 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                <div className="p-5 md:p-6">
+                    <h2 className="text-base md:text-lg font-bold text-white mb-4 flex items-center gap-2">
                         <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -252,13 +252,13 @@ export default function PassengerDashboard() {
                     <div className="space-y-4 mb-4">
                         {/* Pickup */}
                         <div>
-                            <label className="block text-white font-medium mb-2 text-sm">Pickup Location</label>
+                            <label className="block text-white font-medium mb-2 text-xs md:text-sm">Pickup Location</label>
                             <div className="relative">
                                 <div className="absolute left-3 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-cyan-400 rounded-full"></div>
                                 <select
                                     value={pickup}
                                     onChange={(e) => setPickup(e.target.value)}
-                                    className="input-field pl-8 w-full"
+                                    className="input-field pl-8 w-full text-sm py-3"
                                 >
                                     <option value="">Select pickup location</option>
                                     {locations.map(loc => (
@@ -270,13 +270,13 @@ export default function PassengerDashboard() {
 
                         {/* Destination */}
                         <div>
-                            <label className="block text-white font-medium mb-2 text-sm">Destination</label>
+                            <label className="block text-white font-medium mb-2 text-xs md:text-sm">Destination</label>
                             <div className="relative">
                                 <div className="absolute left-3 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-teal-400 rounded-full"></div>
                                 <select
                                     value={destination}
                                     onChange={(e) => setDestination(e.target.value)}
-                                    className="input-field pl-8 w-full"
+                                    className="input-field pl-8 w-full text-sm py-3"
                                 >
                                     <option value="">Select destination</option>
                                     {locations.map(loc => (
@@ -290,7 +290,7 @@ export default function PassengerDashboard() {
                     <button
                         onClick={handleSearch}
                         disabled={loading}
-                        className="w-full px-6 py-4 bg-gradient-to-r from-cyan-500 to-teal-500 text-gray-900 rounded-lg font-bold hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="w-full px-6 py-3.5 md:py-4 bg-gradient-to-r from-cyan-500 to-teal-500 text-gray-900 rounded-lg font-bold hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed text-sm md:text-base"
                     >
                         {loading ? (
                             <span className="flex items-center justify-center gap-2">
@@ -306,10 +306,10 @@ export default function PassengerDashboard() {
                     </button>
                 </div>
 
-                {/* Results */}
+                {/* Results - kept mostly same but ensure padding is good */}
                 {results.length > 0 && (
-                    <div className="px-6 pb-6">
-                        <h3 className="text-white font-bold mb-4 flex items-center gap-2">
+                    <div className="px-5 md:px-6 pb-6">
+                        <h3 className="text-white font-bold mb-4 flex items-center gap-2 text-sm md:text-base">
                             <svg className="w-5 h-5 text-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
@@ -325,7 +325,7 @@ export default function PassengerDashboard() {
                                     >
                                         <div className="flex justify-between items-start mb-3">
                                             <div>
-                                                <h4 className="text-white font-bold">{trotro.driverName}</h4>
+                                                <h4 className="text-white font-bold text-sm md:text-base">{trotro.driverName}</h4>
                                                 <p className="text-secondary text-xs">{trotro.licensePlate}</p>
                                                 <p className="text-cyan-500 text-xs font-medium mt-1">{trotro.availableSeats} seats left</p>
                                             </div>
@@ -357,7 +357,7 @@ export default function PassengerDashboard() {
                 )}
 
                 {!loading && results.length === 0 && pickup && destination && (
-                    <div className="px-6 pb-6">
+                    <div className="px-5 md:px-6 pb-6">
                         <div className="bg-tertiary border border-border rounded-xl p-6 text-center">
                             <svg className="w-12 h-12 text-secondary mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -369,7 +369,7 @@ export default function PassengerDashboard() {
                 )}
 
                 {/* User Profile */}
-                <div className="mt-auto p-6 border-t border-border">
+                <div className="mt-auto p-5 md:p-6 border-t border-border">
                     <div className="flex items-center gap-3">
                         <div className="w-10 h-10 bg-gradient-to-br from-cyan-400 to-teal-400 rounded-full flex items-center justify-center text-gray-900 font-bold">
                             {user?.name?.charAt(0).toUpperCase()}
@@ -392,7 +392,7 @@ export default function PassengerDashboard() {
             </div>
 
             {/* Leaflet Map View */}
-            <div className="flex-1 relative h-full">
+            <div className="flex-1 relative h-[45%] md:h-full">
                 <div className="absolute inset-0">
                     <MapContainer
                         center={ACCRA_CENTER}

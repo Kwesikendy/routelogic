@@ -35,7 +35,7 @@ export default function AuthLayout({ children, title, subtitle }) {
             </div>
 
             {/* Glassmorphic Card */}
-            <div className="relative z-10 w-full max-w-md p-8 mx-4">
+            <div className="relative z-10 w-full max-w-md p-6 md:p-8 mx-4">
                 {/* Frosted Glass Effect */}
                 <div className="absolute inset-0 bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl"></div>
 
