@@ -48,7 +48,7 @@ export default function AdminDashboard() {
     return (
         <div className="flex h-screen bg-primary">
             {/* Main Content */}
-            <div className="flex-1 ml-[260px] overflow-auto">
+            <div className="flex-1 md:ml-[260px] overflow-auto pt-16 md:pt-0">
                 {/* Header */}
                 <div className="bg-secondary border-b border-border px-8 py-6">
                     <div className="flex items-center justify-between">

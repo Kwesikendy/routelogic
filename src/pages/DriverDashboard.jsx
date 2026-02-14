@@ -156,9 +156,9 @@ export default function DriverDashboard() {
     const selectedRouteData = routes.find(r => (r._id || r.routeId) === selectedRoute)
 
     return (
-        <div className="flex h-screen bg-background overflow-hidden">
+        <div className="flex flex-col-reverse md:flex-row h-screen bg-background overflow-hidden">
             {/* Sidebar - Driver Controls */}
-            <div className="w-full md:w-96 bg-secondary border-r border-border overflow-y-auto">
+            <div className="w-full md:w-96 bg-secondary border-t md:border-t-0 md:border-r border-border overflow-y-auto h-[55%] md:h-full z-20 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.3)] md:shadow-none">
                 {/* Header */}
                 <div className="p-6 border-b border-border">
                     <div className="flex items-center gap-3 mb-4">
@@ -363,7 +363,7 @@ export default function DriverDashboard() {
             </div>
 
             {/* Google Map View */}
-            <div className="flex-1 relative">
+            <div className="flex-1 relative h-[45%] md:h-full">
                 <LoadScript googleMapsApiKey={GOOGLE_MAPS_API_KEY}>
                     <GoogleMap
                         mapContainerStyle={{ width: '100%', height: '100%' }}
